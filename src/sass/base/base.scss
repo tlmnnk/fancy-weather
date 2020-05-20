@@ -1,0 +1,26 @@
+*,
+*:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+html {
+    font-size: 10px;
+}
+
+a {
+    text-decoration: none;
+    &:active, &:hover {
+        outline: 0;
+      };
+}
+li {
+    list-style: none;
+}
+body {
+  color: #818999;
+  background: linear-gradient(180deg,#05070b 0,#17171d);
+  font-family: 'Bangers', cursive;
+}

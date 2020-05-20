@@ -1,0 +1,93 @@
+.form {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Pacifico', cursive;
+
+  @include media-tablet {
+    flex-direction: column;
+  }
+
+  &__input {
+    font-family: 'Bangers', cursive;
+    padding: 25px;
+    width: 50%;
+    height: 40px;
+    font-size: 2.5rem;
+    color: #fff;
+    letter-spacing: 3px;
+    background: transparent;
+    border: none;
+    border-bottom: 4px solid #743ad5;
+    outline: none;
+    @include media-tablet {
+      width: 100%;
+    }
+  }
+
+  &__btn--submit {
+    padding: 10px;
+    width: 100px;
+    margin-left: 15px;
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+    background: $prime-gradient;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all .2s ease-out;
+    outline: none;
+    user-select: none;
+
+    @include media-tablet {
+      margin-left: 0;
+      margin-top: 20px;
+      width: 100%;
+    }
+    
+    &:active {
+      transform: translate(4px, 4px);
+    }
+  }
+  &__tooltip {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: transform .3s ease-out;
+    
+    &:active {
+      transform: translate(3px, 3px);
+    }
+    
+    @include media-laptop {
+      display: none;
+    }
+  }
+  &__clear {
+    background-image: url("../../img/clear.svg");
+    right: 34%;
+    transition: transform .1s ease-in;
+    
+
+    @include media-big-display {
+      right: 36%;
+    }
+    
+  }
+  &__keyboard {
+    margin-right: 5px;
+    width: 70px;
+    background-image: url("../../img/keyboard.svg");
+    background-size: 60px;
+    right: 29%;
+
+    &--light {
+      background-image: url("../../img/keyboard-light.svg");
+    }
+  }
+}

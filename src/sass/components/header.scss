@@ -1,0 +1,27 @@
+.header {
+    margin-bottom: 30px;
+    height: 110px;
+    
+    text-align: center;
+    background: linear-gradient(90deg,#ed145b 0,#7b31f4);
+
+    @include media-mobie-mini {
+        height: 90px;
+    }
+
+    &__title {
+        color: #fff;
+        font-family: 'Pacifico', cursive;
+        font-size: 7rem;
+        font-weight: 900;
+
+        @include media-mobile {
+            font-size: 6rem;
+        }
+
+        @include media-mobie-mini {
+            font-size: 5rem;
+        }
+
+    }
+}

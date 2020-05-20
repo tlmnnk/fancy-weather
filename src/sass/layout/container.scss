@@ -1,0 +1,9 @@
+.container {
+  margin: 0 auto;
+  max-width: 1440px;
+  position: relative;
+  padding:  0 15px;
+  //@include media-laptop {
+  //    padding: 0 15px;
+  //}
+}
