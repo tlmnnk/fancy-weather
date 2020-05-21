@@ -1,27 +1,39 @@
 .header {
-    margin-bottom: 30px;
-    height: 110px;
-    
-    text-align: center;
-    background: linear-gradient(90deg,#ed145b 0,#7b31f4);
-
-    @include media-mobie-mini {
-        height: 90px;
+    margin-top: 40px;
+    &__block {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        background-color: $color-background-box;
+        border-radius: 10px;
     }
 
-    &__title {
-        color: #fff;
-        font-family: 'Pacifico', cursive;
-        font-size: 7rem;
-        font-weight: 900;
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        @include media-mobile {
-            font-size: 6rem;
-        }
+    &__lang {
+    margin-left: 20px;
+      border: none;
 
-        @include media-mobie-mini {
-            font-size: 5rem;
-        }
+      &>div>* {
+          cursor: pointer;
+      }
 
+      & label {
+        outline: none !important;
+        user-select: none;
+      }
+    }
+}
+.switch-toggle {
+    background-color: transparent !important;
+
+    & a {
+        background-color: $color-accent;
+        border: none;
+        border-top: 1px solid $color-accent;
     }
 }

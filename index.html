@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fancy Weather</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
   <link rel="icon" 
       type="image/png" 
       href="https://img.icons8.com/officel/16/000000/summer.png"/>
@@ -12,15 +13,26 @@
  <header class="header">
    <div class="container">
      <div class="header__block">
-      <span class="background-change"></span>
      <form class="form search-city">
-       <input type="text" class="search-city__input" placeholder="type in ">
-       <button class="btn--submit" type="submit">Search</button>
+       <input type="text" class="search-city__input" placeholder=" city...">
+       <button class="btn btn--submit" type="submit">Search</button>
      </form>
-     <div class="header__lang">
-      <span class="lang__eng">en</span>
-      <span class="lang__ru">ru</span>
-      <span class="lang__by">by</span>
+     <div class="header__buttons">
+        <span class="background-change btn">↺</span>
+        <fieldset class="header__lang">
+          <div class="switch-toggle switch-candy">
+            <input id="week" name="view" type="radio" checked>
+            <label for="week" onclick="">en</label>
+        
+            <input id="month" name="view" type="radio">
+            <label for="month" onclick="">ru</label>
+        
+            <input id="day" name="view" type="radio">
+            <label for="day" onclick="">by</label>
+        
+            <a></a>
+          </div>
+        </fieldset>
      </div>
      </div>
    </div>
@@ -34,7 +46,7 @@
      </div>
    </div>
  </section>
- <footer>
+ <footer class="footer">
    <a href="https://github.com/tlmnnk" target="_blank" ></a>Github</a>
  </footer>
 </body>

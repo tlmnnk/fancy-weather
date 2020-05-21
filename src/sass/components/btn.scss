@@ -1,0 +1,24 @@
+.btn {
+  padding: 5px 25px;
+  color: $color-accent;
+  background: transparent;
+  box-shadow: $shadow-btn;
+  font-size: 2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+  
+  &--submit {
+    font-family: 'Pacifico', cursive;
+    cursor: pointer;
+    outline: none;
+  }
+
+  &:active {
+    color: #000;
+    background-color: $color-accent;
+    //box-shadow: $shadow-btn-pressed;
+    //transform: translateY(1px);
+  }
+}

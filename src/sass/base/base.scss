@@ -20,7 +20,8 @@ li {
     list-style: none;
 }
 body {
-  color: #818999;
-  background: linear-gradient(180deg,#05070b 0,#17171d);
-  font-family: 'Bangers', cursive;
+  background: $color-main;
+  color: #000;
+  font-size: 16px;
+  font-family: 'Comfortaa', cursive;
 }
