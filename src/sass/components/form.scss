@@ -2,6 +2,10 @@
   position: relative;
   display: flex;
 
+  @include media-mobile {
+    flex-direction: column;
+}
+
   &__input {
     padding: 5px;
     margin-right: 10px;
@@ -16,6 +20,10 @@
     border: 1px solid $color-hovered;
     outline: none;
     text-transform: uppercase;
+
+    @include media-tablet {
+      width: 100%;
+  }
 
     &:hover, &:focus {
       box-shadow: $shadow-focus;

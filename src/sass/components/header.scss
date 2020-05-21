@@ -6,17 +6,29 @@
         justify-content: space-between;
         background-color: $color-background-box;
         border-radius: 10px;
+
+        @include media-tablet {
+            flex-direction: column;
+        }
     }
 
     &__buttons {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        @include media-tablet {
+            margin-top: 20px;
+        }
     }
 
     &__lang {
-    margin-left: 20px;
+      margin-left: 20px;
       border: none;
+
+      @include media-tablet {
+        width: 75%;
+    }
 
       &>div>* {
           cursor: pointer;
@@ -30,7 +42,7 @@
 }
 .switch-toggle {
     background-color: transparent !important;
-
+    
     & a {
         background-color: $color-accent;
         border: none;

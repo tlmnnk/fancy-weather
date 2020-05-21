@@ -1,0 +1,39 @@
+.footer {
+  margin-top: 30px;
+
+  &__inner {
+    min-height: 60px;
+    text-align: center;
+    background-color: $color-background-box;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+
+  &__link {
+    margin: 0 auto;
+    width: 50px;
+    display: block;
+    
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $color-font-little;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-font-primary;
+
+      
+    }
+  }
+}
+.footer__link:hover {
+  .footer__inner {
+    box-shadow: $shadow-box;
+  }
+}

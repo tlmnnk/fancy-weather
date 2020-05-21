@@ -1,0 +1,14 @@
+.layout-2-column {
+  display: flex;
+  justify-content: space-between;
+
+  &>*{
+    flex-basis: 48%;
+  }
+}
+
+.layout-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

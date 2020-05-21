@@ -24,4 +24,6 @@ body {
   color: #000;
   font-size: 16px;
   font-family: 'Comfortaa', cursive;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
