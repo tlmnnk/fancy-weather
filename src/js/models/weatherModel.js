@@ -1,0 +1,1 @@
+import apiWeather from '../service/apiWeather';

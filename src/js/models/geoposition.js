@@ -28,8 +28,8 @@ class Geoposition {
   } catch (error) {
       // Default coordinates New York
       this.coords = {
-        lattitude: 40.7128,
-        longitude: 74.0060
+        lattitude: 40.7142715,
+        longitude: -74.0059662
       };
       return this.coords;
     }

@@ -1,5 +1,6 @@
 import geoposition from '../models/geoposition';
 import mapView from '../views/mapView';
+import apiWeather from '../service/apiWeather';
 
 class App {
   constructor() {
@@ -14,6 +15,8 @@ class App {
   async renderMap() {
     const coords = await this.geoposition.fetchCoordinates();
     const { lattitude, longitude } = coords;
+    //const currentForecast = await apiWeather.getCurrentForecast('', lattitude, longitude);
+    //console.log(currentForecast.data[0]);
     this.mapView.renderMap(lattitude, longitude);
    
   }
