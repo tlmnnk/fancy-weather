@@ -2,9 +2,6 @@ import app from './controller/app';
 import geoposition from './models/geoposition';
 
 document.addEventListener('DOMContentLoaded', () => {
-  geoposition.fetchCoordinates();
+  app.init();
 });
 
-async function geo() {
-  return await geoposition.getPosition();
-}

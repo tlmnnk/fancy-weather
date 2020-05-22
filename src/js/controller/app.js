@@ -1,15 +1,20 @@
 import geoposition from '../models/geoposition';
+import mapView from '../views/mapView';
 
 class App {
   constructor() {
     this.geoposition = geoposition;
+    this.mapView = mapView;
   }
 
   init() {
-    this.getPosition();
+    this.renderMap();
   }
-  getPosition() {
-    geoposition.getPosition();
+
+  async renderMap() {
+    const coords = await this.geoposition.fetchCoordinates();
+    const { lattitude, longitude } = coords;
+    this.mapView.renderMap(lattitude, longitude);
    
   }
 }

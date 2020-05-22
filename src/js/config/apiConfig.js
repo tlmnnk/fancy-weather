@@ -1,7 +1,8 @@
+// usually env variables
 const config = {
-  omdb: {
-    url: 'https://www.omdbapi.com/?',
-    apiKey: '7975880b',
+  map: {
+    url: 'https://www.google.com/maps/embed/v1/view?',
+    apiKey: 'AIzaSyBP9llkXgAKBFCb-Q_r6bggoz964zqNuXM'
   },
   yandex: {
     url: 'https://translate.yandex.net/api/v1.5/tr.json/translate?',
