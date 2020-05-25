@@ -7,6 +7,15 @@
   }
 }
 
+.layout-3-column {
+  display: flex;
+  justify-content: center;
+
+  &>*{
+    flex-basis: 25%;
+  }
+}
+
 .layout-vertical {
   display: flex;
   flex-direction: column;

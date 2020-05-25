@@ -1,6 +1,6 @@
 import geoposition from '../models/geoposition';
 import mapView from '../views/mapView';
-import apiWeather from '../service/apiWeather';
+import weatherModel from '../models/weatherModel';
 
 class App {
   constructor() {
@@ -9,16 +9,27 @@ class App {
   }
 
   init() {
-    this.renderMap();
+    this.renderMapOnStart();
+    this.forecastOnStart();
   }
 
-  async renderMap() {
+  async forecastOnStart() {
+    const currentForecast = await weatherModel.getCurrentForecast('moscow');
+    const forecast16days = await weatherModel.get16DayForecast('moscow');
+    console.log(currentForecast);
+    console.log(forecast16days);
+  }
+
+  async renderMapOnStart() {
     const coords = await this.geoposition.fetchCoordinates();
     const { lattitude, longitude } = coords;
-    const currentForecast = await apiWeather.getCurrentForecast('rgasfasdf');
-    //console.log(currentForecast.data[0]);
+    this.getLocalForecast(lattitude, longitude);
     this.mapView.renderMap(lattitude, longitude);
-   
+  }
+  
+  async getLocalForecast(lattitude, longitude) {
+    // get data (model)
+    // display data with views
   }
 }
 

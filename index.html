@@ -51,7 +51,41 @@
      <div class="main-block layout-2-column">
        <div class="map">
        </div>
-       <div class="main__forecast"></div>
+       <div class="forecast layout-vertical">
+         <div class="forecast__inner layout-2-column">
+          <div class="forecast__temp">+22°</div>
+          <div class="forecast__details layout-vertical">
+            <img class="forecast__img" src="https://www.weatherbit.io/static/img/icons/r01d.png" alt="">
+            <div class="forecast__weather">Дождь</div>
+            <div class="forecast__app">Ощущается как <span data-appTemp>+22°</span></div>
+            <div class="forecast__wind">Ветер <span data-wind>5 М/С</span></div>
+            <div class="forecast__humidity">Влажность <span data-wind>30%</span></div>
+          </div>
+         </div>
+          <div class="forecast__3days layout-3-column">
+            <div class="forecast__3days--first layout-vertical">
+              <div class="forecast__3days--weekday">ВТОРНИК</div>
+              <div class="forecast__3days--weather">
+                <span>+22°</span>
+                <img src="https://www.weatherbit.io/static/img/icons/r01d.png" alt="">
+              </div>
+            </div>
+            <div class="forecast__3days--second layout-vertical">
+              <div class="forecast__3days--weekday">ВТОРНИК</div>
+              <div class="forecast__3days--weather">
+                <span>+22°</span>
+                <img src="https://www.weatherbit.io/static/img/icons/r01d.png" alt="">
+              </div>
+            </div>
+            <div class="forecast__3days--third layout-vertical">
+              <div class="forecast__3days--weekday">ВТОРНИК</div>
+              <div class="forecast__3days--weather">
+                <span>+22°</span>
+                <img src="https://www.weatherbit.io/static/img/icons/r01d.png" alt="">
+              </div>
+            </div>
+          </div>
+       </div>
      </div>
    </div>
  </section>

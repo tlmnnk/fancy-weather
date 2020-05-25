@@ -1,0 +1,54 @@
+.forecast {
+  &__inner {
+    height: 100%;
+  }
+  &__temp {
+    align-self: center;
+    font-size: 10rem;
+    text-align: center;
+  }
+
+  &__img {
+    object-fit: contain;
+    align-self: flex-start;
+  }
+
+  &__weather {
+    font-size: 3rem;
+  }
+
+  &__app span {
+    font-weight: bold;
+  }
+  &__wind span {
+    font-weight: bold;
+  }
+  &__humidity span {
+    font-weight: bold;
+  }
+
+  &__3days {
+    margin-top: 30px;
+    justify-items: space-between;
+
+    &--weekday {
+      color: $color-font-secondary;
+      text-align: center;
+    }
+  
+    &--weather {
+      display: flex;
+      justify-content: center;
+      & span {
+        align-self: center;
+        text-align: center;
+      }
+
+      & img {
+        width: 70px;
+      }
+    } 
+  }
+
+  
+}
