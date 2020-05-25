@@ -1,0 +1,22 @@
+.map {
+  padding: 20px 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__iframe {
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  &__info {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: $color-font-secondary;
+    font-weight: 600;
+  }
+}

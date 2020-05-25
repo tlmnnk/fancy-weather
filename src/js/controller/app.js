@@ -15,7 +15,7 @@ class App {
   async renderMap() {
     const coords = await this.geoposition.fetchCoordinates();
     const { lattitude, longitude } = coords;
-    //const currentForecast = await apiWeather.getCurrentForecast('', lattitude, longitude);
+    const currentForecast = await apiWeather.getCurrentForecast('rgasfasdf');
     //console.log(currentForecast.data[0]);
     this.mapView.renderMap(lattitude, longitude);
    

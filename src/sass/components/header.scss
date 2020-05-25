@@ -39,6 +39,23 @@
         user-select: none;
       }
     }
+
+    &__degrees {
+        background-color: transparent !important;
+
+        &>* {
+            padding: 0px 10px;
+            border: none;
+            cursor: pointer;
+            outline: none !important;
+            user-select: none;
+        }
+        & a {
+            background-color: $color-accent;
+            border: none;
+            border-top: 1px solid $color-accent;
+        }
+    }
 }
 .switch-toggle {
     background-color: transparent !important;
