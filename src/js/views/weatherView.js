@@ -6,9 +6,9 @@ class WeatherView {
     this.forecastTemp = document.querySelector('.forecast__temp');
     this.forecastImg = document.querySelector('.forecast__img');
     this.forecastWeather = document.querySelector('.forecast__weather');
-    this.forecastAppTemp = document.querySelector('.forecast__app');
-    this.forecastWind = document.querySelector('.forecast__wind');
-    this.forecastHumidity = document.querySelector('.forecast__humidity');
+    this.forecastAppTemp = document.querySelector('[data-appTemp]');
+    this.forecastWind = document.querySelector('[data-wind]');
+    this.forecastHumidity = document.querySelector('[data-hum]');
     this.forecastWeekdays = document.querySelectorAll('.forecast__3days--weekday');
     this.forecastWeekdaysWeather = document.querySelectorAll('.forecast__3days--weather span');
     this.forecastWeekdaysImg = document.querySelectorAll('.forecast__3days--weather img');
@@ -29,7 +29,21 @@ class WeatherView {
     this.forecastAppTemp.innerText = appTemp;
     this.forecastWind.innerText = wind_spd;
     this.forecastHumidity.innerText = rh;
-    
+  }
+
+  render3daysForecast(forecast3days) {
+    forecast3days.forEach((forecastForDay, i) => {
+      const { temp,  weather } = forecastForDay;
+      const { icon } = weather;
+      const temperature = this.serializeForecast(temp);
+
+      //this.forecastWeekdays[i].innerText = 
+      this.forecastWeekdaysWeather[i].innerText = temperature;
+      this.forecastWeekdaysImg[i].setAttribute(
+        'src',
+        `${iconLink}${icon}.png`
+        );
+    });
   }
 
   serializeForecast(data) {

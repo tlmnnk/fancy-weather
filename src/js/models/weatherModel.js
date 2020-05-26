@@ -7,7 +7,7 @@ class WeatherModel {
   }
 
   async getCurrentForecast(cityName, lang, latitude = '', longitude = '') {
-    const currentForecast = await apiWeather.getCurrentForecast(cityName, latitude, longitude);
+    const currentForecast = await apiWeather.getCurrentForecast(cityName, lang, latitude, longitude);
     if (currentForecast === false) {
       return false;
     }
@@ -15,8 +15,8 @@ class WeatherModel {
     return currentForecast;
   }
 
-  async get16DayForecast(cityName, lang, latitude = '', longitude = '') {
-    const forecast16days = await apiWeather.get16DayForecast(cityName, latitude, longitude);
+  async get3DayForecast(cityName, lang, latitude = '', longitude = '') {
+    const forecast16days = await apiWeather.get16DayForecast(cityName, lang, latitude, longitude);
     if (forecast16days === false) {
       return false;
     }
