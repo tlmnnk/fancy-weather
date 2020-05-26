@@ -15,8 +15,8 @@ class Map {
       src="${this.url}key=${this.key}&center=${lattitude},${longitude}&zoom=11">
     </iframe>
     <div class="map__info">
-           <div class="map__info--lat">Широта <span></span></div>
-           <div class="map__info--lon"> Долгота <span></span></div>
+           <div class="map__info--lat">Latitude <span></span></div>
+           <div class="map__info--lon">Longitude <span></span></div>
          </div>`;
      this.mapContainer.insertAdjacentHTML('afterbegin', fragment);
      this.mapFrame = document.querySelector('.main__map-iframe');

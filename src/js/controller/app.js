@@ -18,13 +18,12 @@ class App {
     this.currentLang = languages.english;
     this.cityView = cityView;
     this.geocodeModel = new GeocodeModel();
-
   }
 
   async init() {
     await this.renderMapOnStart();
     this.renderForecastOnStart();
-    this.renderCityLocation( this.currentCoords, this.currentLang )
+    this.renderCityLocation( this.currentCoords, this.currentLang );
   }
 
   renderForecastOnStart() {

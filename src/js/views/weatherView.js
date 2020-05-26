@@ -19,6 +19,7 @@ class WeatherView {
     const { icon, description } = weather;
     const appTemp = this.serializeForecast(app_temp);
     const temperature = this.serializeForecast(temp);
+    const windSpeed = this.serializeWind(wind_spd);
 
     this.forecastTemp.innerText = temperature;
     this.forecastImg.setAttribute(
@@ -27,7 +28,7 @@ class WeatherView {
       );
     this.forecastWeather.innerText = description;
     this.forecastAppTemp.innerText = appTemp;
-    this.forecastWind.innerText = wind_spd;
+    this.forecastWind.innerText = windSpeed;
     this.forecastHumidity.innerText = rh;
   }
 
@@ -50,6 +51,12 @@ class WeatherView {
     let dataStr = data.toString();
     dataStr.includes('.') ? dataStr = dataStr.slice(0, dataStr.indexOf('.')) : null;
     dataStr.includes('-') ? dataStr = `${dataStr}°` : dataStr = `+${dataStr}°`;
+    return dataStr;
+  }
+
+  serializeWind(data) {
+    let dataStr = data.toString();
+    dataStr.includes('.') ? dataStr = dataStr.slice(0, dataStr.indexOf('.')) : null;
     return dataStr;
   }
 }
