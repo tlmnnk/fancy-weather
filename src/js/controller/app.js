@@ -3,9 +3,9 @@ import geoposition from '../models/geoposition';
 import mapView from '../views/mapView';
 import weatherModel from '../models/weatherModel';
 import weatherView from '../views/weatherView';
-import geocoding from '../service/geocoding';
 import GeocodeModel from '../models/geocodeModel';
 import cityView from '../views/cityView';
+import langSwitch from '../views/langSwitch';
 
 
 class App {
@@ -15,19 +15,22 @@ class App {
     this.weatherModel = weatherModel;
     this.weatherView = weatherView;
     this.currentCoords = null;
+    this.currentWeatherCode = null;
     this.currentLang = languages.english;
     this.cityView = cityView;
     this.geocodeModel = new GeocodeModel();
+    this.langSwitch = langSwitch;
   }
 
   async init() {
     await this.renderMapOnStart();
-    this.renderForecastOnStart();
+    await this.renderForecastOnStart();
     this.renderCityLocation( this.currentCoords, this.currentLang );
+    this.langSwitch.initEventListener(this.currentWeatherCode);
   }
 
-  renderForecastOnStart() {
-    this.getLocalForecast(this.currentCoords);
+  async renderForecastOnStart() {
+    await this.getLocalForecast(this.currentCoords);
   }
 
   async renderMapOnStart() {
@@ -48,6 +51,9 @@ class App {
       [this.weatherModel.getCurrentForecast( '', '', lattitude, longitude ),
       this.weatherModel.get3DayForecast( '', '', lattitude, longitude )]
     );
+    const { code } = currentForecast.weather;
+    this.currentWeatherCode = code;
+
     this.weatherView.renderCurrentForecast(currentForecast);
     this.weatherView.render3daysForecast(forecast3days);
   }

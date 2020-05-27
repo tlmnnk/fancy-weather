@@ -14,21 +14,21 @@
    <div class="container">
      <div class="header__block">
      <form class="form search-city">
-       <input type="text" class="search-city__input" placeholder=" city...">
-       <button class="btn btn--submit" type="submit">Search</button>
+       <input type="text" class="search-city__input" placeholder=" city..." data-i18n="city">
+       <button class="btn btn--submit" type="submit" data-i18n="search">Search</button>
      </form>
      <div class="header__buttons">
         <span class="background-change btn">↺</span>
         <fieldset class="header__lang">
           <div class="switch-toggle switch-candy">
-            <input id="week" name="view" type="radio" checked>
-            <label for="week" onclick="">en</label>
+            <input id="week" name="view" type="radio">
+            <label class="radio-checked" for="week" data-lang onclick="">en</label>
         
             <input id="month" name="view" type="radio">
-            <label for="month" onclick="">ru</label>
+            <label for="month" data-lang onclick="">ru</label>
         
             <input id="day" name="view" type="radio">
-            <label for="day" onclick="">by</label>
+            <label for="day" data-lang onclick="">be</label>
         
             <a></a>
           </div>
@@ -47,38 +47,58 @@
  </header>
  <section class="main">
    <div class="container">
-     <p class="main__city"><span data-city>sdfasdfasdf</span> <span data-time>12345</span></p>
+     <p class="main__city">
+       <span data-city>sdfasdfasdf</span> 
+       <span data-i18n="weekday"></span>
+       <span data-day></span>
+       <span data-i18n="month"></span>
+       <span data-year></span>
+       <span data-time></span>
+      </p>
      <div class="main-block layout-2-column">
        <div class="map">
+        <iframe
+        class="map__iframe"
+        frameborder="0" style="border:0">
+      </iframe>
+      <div class="map__info">
+             <div class="map__info--lat"><span data-i18n="lat">Latitude</span>  <span data-lat></span></div>
+             <div class="map__info--lon"> <span data-i18n="lon">Longitude</span>  <span data-lon></span></div>
+           </div>`
        </div>
        <div class="forecast layout-vertical">
          <div class="forecast__inner layout-2-column">
           <div class="forecast__temp">+22°</div>
           <div class="forecast__details layout-vertical">
             <img class="forecast__img" src="https://www.weatherbit.io/static/img/icons/r01d.png" alt="">
-            <div class="forecast__weather"></div>
-            <div class="forecast__app">Feels like <span data-appTemp>+22°</span></div>
-            <div class="forecast__wind">Wind <span data-wind>5</span> m/s</div>
-            <div class="forecast__humidity">Humidity <span data-hum>30</span>%</div>
+            <div class="forecast__weather" data-i18n="weather"></div>
+            <div class="forecast__app" >
+              <span data-i18n="appTemp">Feels like</span> 
+              <span data-appTemp>+22°</span>
+            </div>
+            <div class="forecast__wind">
+              <span data-i18n="wind">Wind</span> 
+              <span data-wind>5</span> m/s</div>
+            <div class="forecast__humidity"><span data-i18n="hum">Humidity</span> <span data-hum>30</span>%</div>
           </div>
          </div>
           <div class="forecast__3days layout-3-column">
             <div class="forecast__3days--first layout-vertical">
-              <div class="forecast__3days--weekday">ВТОРНИК</div>
+              <div class="forecast__3days--weekday" data-i18n="weekday"></div>
               <div class="forecast__3days--weather">
                 <span>+22°</span>
                 <img src="https://www.weatherbit.io/static/img/icons/r01d.png" alt="">
               </div>
             </div>
             <div class="forecast__3days--second layout-vertical">
-              <div class="forecast__3days--weekday">ВТОРНИК</div>
+              <div class="forecast__3days--weekday" data-i18n="weekday"></div>
               <div class="forecast__3days--weather">
                 <span>+22°</span>
                 <img src="https://www.weatherbit.io/static/img/icons/r01d.png" alt="">
               </div>
             </div>
             <div class="forecast__3days--third layout-vertical">
-              <div class="forecast__3days--weekday">ВТОРНИК</div>
+              <div class="forecast__3days--weekday" data-i18n="weekday"></div>
               <div class="forecast__3days--weather">
                 <span>+22°</span>
                 <img src="https://www.weatherbit.io/static/img/icons/r01d.png" alt="">
