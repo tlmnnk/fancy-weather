@@ -34,6 +34,11 @@ class LangSwitch {
   applyLanguage(language, weatherCode) {
     Object.keys(language).forEach((key) => {
       const elementToTranslate = [...this.elementsToTranslate].filter(element => element.getAttribute('data-i18n') === key);
+
+      if (key === 'city') {
+        elementToTranslate.forEach(item => item.setAttribute('placeholder', `${language.city}...`)); 
+      }
+
       if (key === 'month') {
         const currentMonth = new Date().getMonth();
         elementToTranslate.forEach(item => item.innerText = language.month[currentMonth]); 
