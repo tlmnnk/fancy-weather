@@ -22,7 +22,6 @@ class Map {
       'src',
       `${this.url}key=${this.key}&center=${lattitude},${longitude}&zoom=11`
     );
-    this.updateCoordsInfo(lattitude, longitude);
   }
 
   updateCoordsInfo(lattitude, longitude) {

@@ -19,6 +19,7 @@ li {
     list-style: none;
 }
 body {
+  position: relative;
   background: $color-main;
   color: #000;
   font-size: 16px;
@@ -26,3 +27,9 @@ body {
   min-height: 100vh;
   min-height: -webkit-fill-available;
 }
+
+.overlay {
+    filter: blur(10px);
+    user-select: none;
+}
+

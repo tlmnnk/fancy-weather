@@ -10,11 +10,17 @@
       href="https://img.icons8.com/officel/16/000000/summer.png"/>
 </head>
 <body class="layout-vertical">
+  <div class="preloader">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
  <header class="header">
    <div class="container">
      <div class="header__block">
      <form class="form search-city">
-       <input type="text" class="search-city__input" placeholder=" city..." data-i18n="city">
+       <input type="text" class="search-city__input" placeholder="city..." data-i18n="city">
        <button class="btn btn--submit" type="submit" data-i18n="search">Search</button>
      </form>
      <div class="header__buttons">
@@ -43,16 +49,18 @@
      </div>
    </div>
  </header>
- <section class="main">
+ <section class="main overlay">
    <div class="container">
-     <p class="main__city">
-       <span data-city>sdfasdfasdf</span> 
-       <span data-i18n="weekday"></span>
-       <span data-day></span>
-       <span data-i18n="month"></span>
-       <span data-year></span>
-       <span data-time></span>
-      </p>
+     <div class="main__city">
+       <span data-city>New York</span> 
+       <div class="main__date">
+        <span data-i18n="weekday"></span>
+        <span data-day></span>
+        <span data-i18n="month"></span>
+        <span data-year></span>
+        <span data-hour></span>:<span data-min></span>
+       </div>
+      </div>
      <div class="main-block layout-2-column">
        <div class="map">
         <iframe
@@ -62,43 +70,43 @@
       <div class="map__info">
              <div class="map__info--lat"><span data-i18n="lat">Latitude</span>  <span data-lat></span></div>
              <div class="map__info--lon"> <span data-i18n="lon">Longitude</span>  <span data-lon></span></div>
-           </div>`
+           </div>
        </div>
        <div class="forecast layout-vertical">
          <div class="forecast__inner layout-2-column">
-          <div class="forecast__temp">+22°</div>
+          <div class="forecast__temp" data-deg></div>
           <div class="forecast__details layout-vertical">
             <img class="forecast__img" src="https://www.weatherbit.io/static/img/icons/r01d.png" alt="">
             <div class="forecast__weather" data-i18n="weather"></div>
             <div class="forecast__app" >
               <span data-i18n="appTemp">Feels like</span> 
-              <span data-appTemp>+22°</span>
+              <span data-appTemp></span>
             </div>
             <div class="forecast__wind">
               <span data-i18n="wind">Wind</span> 
               <span data-wind>5</span> m/s</div>
-            <div class="forecast__humidity"><span data-i18n="hum">Humidity</span> <span data-hum>30</span>%</div>
+            <div class="forecast__humidity"><span data-i18n="hum">Humidity</span> <span data-hum></span>%</div>
           </div>
          </div>
           <div class="forecast__3days layout-3-column">
             <div class="forecast__3days--first layout-vertical">
               <div class="forecast__3days--weekday" data-i18n="weekday"></div>
               <div class="forecast__3days--weather">
-                <span>+22°</span>
+                <span data-deg></span>
                 <img src="https://www.weatherbit.io/static/img/icons/r01d.png" alt="">
               </div>
             </div>
             <div class="forecast__3days--second layout-vertical">
               <div class="forecast__3days--weekday" data-i18n="weekday"></div>
               <div class="forecast__3days--weather">
-                <span>+22°</span>
+                <span data-deg></span>
                 <img src="https://www.weatherbit.io/static/img/icons/r01d.png" alt="">
               </div>
             </div>
             <div class="forecast__3days--third layout-vertical">
               <div class="forecast__3days--weekday" data-i18n="weekday"></div>
               <div class="forecast__3days--weather">
-                <span>+22°</span>
+                <span data-deg></span>
                 <img src="https://www.weatherbit.io/static/img/icons/r01d.png" alt="">
               </div>
             </div>

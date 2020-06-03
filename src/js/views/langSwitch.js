@@ -12,25 +12,8 @@ class LangSwitch {
        EN: { ...en },
        BE: { ...be },
     };
-    console.log(this.languages);
   }
-  initEventListener(weatherCode) {
-    this.langSwitch.addEventListener('click', (e) => {
-      if (e.target.classList.contains('radio-checked')) {
-        return;
-      }
-
-      if (e.target.hasAttribute('data-lang')) {
-        console.log(e.target.innerText);
-        this.removeAllChecked();
-        this.applyLanguage(this.languages[e.target.innerText], weatherCode);
-        e.target.classList.add('radio-checked');
-        console.log(this.languages[e.target.innerText]);
-      }
-      
-    });
-  }
-
+  
   applyLanguage(language, weatherCode) {
     Object.keys(language).forEach((key) => {
       const elementToTranslate = [...this.elementsToTranslate].filter(element => element.getAttribute('data-i18n') === key);

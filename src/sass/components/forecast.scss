@@ -1,4 +1,6 @@
 .forecast {
+  padding: 5px 10px;
+  
   &__inner {
     height: 100%;
   }
@@ -17,13 +19,13 @@
     font-size: 3rem;
   }
 
-  &__app span {
+  &__app [data-apptemp] {
     font-weight: bold;
   }
-  &__wind span {
+  &__wind [data-wind] {
     font-weight: bold;
   }
-  &__humidity span {
+  &__humidity [data-hum] {
     font-weight: bold;
   }
 

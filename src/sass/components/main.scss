@@ -3,6 +3,7 @@
   
   &__city {
     padding: 1rem;
+    display: flex;
     width: 100%;
     background-color: $color-background-box;
 
@@ -11,6 +12,12 @@
     
     text-align: center;
     border-radius: 10px;
+  }
+
+  &__date {
+    font-size: 2rem;
+    color: $color-font-secondary;
+    text-align: right;
   }
 
   &-block {
@@ -22,4 +29,7 @@
       border-radius: 10px;
     }
   }
+}
+[data-city] {
+  width: 100%;
 }
