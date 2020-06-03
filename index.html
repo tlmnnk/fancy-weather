@@ -27,24 +27,26 @@
         <span class="background-change btn">↺</span>
         <fieldset class="header__lang">
           <div class="switch-toggle switch-candy">
-            <input id="week" name="view" type="radio">
-            <label class="radio-checked" for="week" data-lang onclick="">en</label>
-            <input id="month" name="view" type="radio">
-            <label for="month" data-lang onclick="">ru</label>
-            <input id="day" name="view" type="radio">
-            <label for="day" data-lang onclick="">be</label>
+            <input id="en" name="view" type="radio" checked>
+            <label class="radio-checked" for="en" data-lang onclick="">en</label>
+            <input id="ru" name="view" type="radio" >
+            <label for="ru" data-lang onclick="">ru</label>
+            <input id="be" name="view" type="radio">
+            <label for="be" data-lang onclick="">be</label>
 
             <a></a>
           </div>
         </fieldset>
-        <label class="switch-light switch-candy header__lang" onclick="">
-          <input type="checkbox">
-          <span class="header__degrees">
-            <span>°C</span>
-            <span>°F</span>
+        <fieldset class="header__deg">
+          <div class="switch-toggle switch-candy">
+            <input id="cel" name="view2" type="radio">
+            <label class="radio-checked" for="cel" data-tempswitch='cel' onclick="">°C</label>
+            <input id="far" name="view2" type="radio">
+            <label for="far" data-tempswitch="far" onclick="">°F</label>
             <a></a>
-          </span>
-        </label>
+          </div>
+        </fieldset>
+    
      </div>
      </div>
    </div>
@@ -80,7 +82,7 @@
             <div class="forecast__weather" data-i18n="weather"></div>
             <div class="forecast__app" >
               <span data-i18n="appTemp">Feels like</span> 
-              <span data-appTemp></span>
+              <span data-appTemp data-deg></span>
             </div>
             <div class="forecast__wind">
               <span data-i18n="wind">Wind</span> 
