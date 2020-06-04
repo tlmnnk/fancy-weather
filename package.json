@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "background-image-on-load": "^1.1.0",
     "css-toggle-switch": "^4.1.0",
     "universal-toast": "^1.2.0"
   }

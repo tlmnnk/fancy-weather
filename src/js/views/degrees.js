@@ -12,7 +12,6 @@ class TempUnits {
         return;
       }
       if (e.target.hasAttribute('data-tempswitch')) {
-        console.log(e.target);
         this.switchCheckedButton(e);
         if (e.target.getAttribute('data-tempswitch') === 'far') {
           this.renderFarTempUnit();
@@ -49,9 +48,6 @@ class TempUnits {
     this.tempCelArray = [];
    [...this.degreesContainer].forEach(item => {
      const el = +(item.innerText.slice(0, item.innerText.length -1));
-     console.log(item.innerText);
-     console.log(el);
-     
     this.tempCelArray.push(el);
    });
   }

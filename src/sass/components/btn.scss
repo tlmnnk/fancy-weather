@@ -1,14 +1,21 @@
 .btn {
-  padding: 5px 25px;
+  padding: 5px 20px;
   color: $color-accent;
   background: transparent;
-  box-shadow: $shadow-btn;
   font-size: 2rem;
   border: none;
   border-radius: 10px;
-  cursor: pointer;
   user-select: none;
-  
+  text-align: center;
+  cursor: pointer;
+  letter-spacing: 2px;
+  position: relative;
+  background-color: $color-hovered;
+  text-align: center;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  box-shadow: 0 5px 5px $color-main-sub;
+
   &--submit {
     font-family: 'Pacifico', cursive;
     cursor: pointer;
@@ -18,11 +25,38 @@
       margin-top: 20px;
   }
   }
+}
 
-  &:active {
-    color: #000;
-    background-color: $color-accent;
-    //box-shadow: $shadow-btn-pressed;
-    //transform: translateY(1px);
+.btn:hover {
+  background: rgb(139, 139, 139);
+  box-shadow: 0px 2px 5px 3px $color-font-little;
+  color: #000;
+}
+
+.btn:after {
+  content: "";
+  background: $color-background;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.btn:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+.btn:focus { outline:0; }
+
+.background-change {
+  @include media-mobile {
+    padding: 5px 12px;
   }
 }

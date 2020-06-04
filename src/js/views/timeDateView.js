@@ -5,24 +5,93 @@ class TimeDateView {
     this.year = document.querySelector('[data-year]');
     this.hour = document.querySelector('[data-hour]');
     this.minutes = document.querySelector('[data-min]');
+    this.hourStr = null;
+    this.monthStr = null;
+  }
+
+  getTimeZoneDay() {
+    return this.dayStr;
   }
 
   setTimeDate(timeOffset = 0) {
-    let hour = new Date().getUTCHours() + timeOffset;
-    let day = new Date().getDate();
-    if (hour <= 0) {
-      hour === 0 ? hour = '00' : null;
-      hour = 24 + hour;
-      day = day - 1;
-      if (day === 0) {
-        day = new Date(new Date().getYear(), new Date().getMonth() + 1, 0).getDate();
-      }
-    }
-    hour <= 0 ? hour === 0 ? hour = '00' : hour = 24 - hour : null; 
+    console.log('timeOffset = ....');
+    console.log(timeOffset);
+    
+    const date = new Date(new Date().getTime() + (new Date().getTimezoneOffset()*60000) + timeOffset*1000);
+    let hour = date.getHours();
+    let day = date.getDate();
+    let month = date.getMonth();
+    let weekDay = date.getDay();
+
+    this.weekDayStr = weekDay;
+    this.hourStr = hour;
+    this.monthStr = month;
+    this.dayStr = day;
     this.dayOfMonth.innerText = day;
+  }
+
+  renderTime() {
+    let hour = this.hourStr;
     this.year.innerText = new Date().getUTCFullYear();
+    hour < 10 ? hour = '0'+hour.toString() : null;
     this.hour.innerText = hour;
-    this.minutes.innerText = new Date().getMinutes();
+    let mins = new Date().getMinutes();
+    mins < 10 ? mins = '0'+mins.toString() : null;
+    this.minutes.innerText = mins;
+  }
+
+  getTimezoneDay() {
+    return this.dayStr;
+  }
+  getTimezoneMonth() {
+    return this.monthStr;
+  }
+  getTimezoneHour() {
+    return this.hourStr;
+  }
+  getTimezoneWeekday() {
+    return this.weekDayStr;
+  }
+
+  getSearchPhotoQuery() {
+    let timeOfDay, season;
+    switch (true) {
+      case (this.hourStr >= 0 && this.hourStr < 6):
+        timeOfDay = 'night';
+        break;
+       case (this.hourStr >= 6 && this.hourStr < 12 ):
+        timeOfDay = 'morning';
+        break;
+        case (this.hourStr >= 12 && this.hourStr < 18 ):
+        timeOfDay = 'afternoon';
+        break;
+        case (this.hourStr >= 18 && this.hourStr < 24 ):
+        timeOfDay = 'afternoon';
+        break;
+      default:
+        timeOfDay = 'town';
+        break;
+    }
+  
+    switch (true) {
+      case ( this.monthStr === 11 || this.monthStr >= 0 && this.monthStr < 2):
+        season = 'winter';
+        break;
+      case (this.monthStr >= 2 && this.monthStr < 5 ):
+        season = 'spring';
+        break;
+        case (this.monthStr >= 5 && this.monthStr < 8 ):
+          season = 'summer';
+        break;
+        case (this.monthStr >= 8 && this.monthStr < 11 ):
+          season = 'autumn';
+        break;
+      default:
+        season = 'season';
+        break;
+    }
+
+    return `${timeOfDay || ''},city,${season || 'summer'}`;
   }
 }
 

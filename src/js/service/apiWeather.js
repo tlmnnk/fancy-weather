@@ -23,8 +23,6 @@ class ApiWeather {
         return false;
       }
       // current forecast always have only 1 item in data array
-      console.log('weather = ');
-      console.log(response);
       return response.data.data[0];
     } catch (error) {
       console.log(error);

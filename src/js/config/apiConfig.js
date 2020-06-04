@@ -11,6 +11,10 @@ const config = {
   geocoding: {
     url: 'https://api.opencagedata.com/geocode/v1/json',
     apiKey: '0c79340b96d849c797802a502ae7178d',
+  },
+  photos: {
+    url: 'https://api.unsplash.com/photos/random',
+    apiKey: 'UPM655GklxCspB7XjOQL7PdRVFJFdJ1gDX7k0DVqtP8'
   }
 };
 

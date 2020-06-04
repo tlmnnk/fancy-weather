@@ -3,11 +3,12 @@ $shadow-btn: inset 0 2px 6px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.2
 $shadow-btn-pressed: 0 2px 6px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.2);
 $shadow-focus: inset 0 2px 6px rgba(255, 255, 255, 0.7), 0 1px 0 rgba(255, 255, 255, 0.5);
 $shadow-box: 0 6px 18px 0 rgba(0,0,0,.06);
+$shadow-box-main: inset 0px 0px 3px 1px rgba(0,0,0,0.3);
 
 $color-main: #EEEEEE;
 $color-main-sub: #757575;
 
-$color-background-box: rgba(#cfd8dc, .6);
+$color-background-box: rgba(#cfd8ff, .8);
 $color-background: #fdeac3;
 $color-accent: #97a1a7;
 $color-hovered: #B0BEC5;

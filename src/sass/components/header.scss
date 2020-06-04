@@ -1,10 +1,13 @@
 .header {
-    margin-top: 40px;
+    margin-top: 30px;
+    
     &__block {
         padding: 20px;
         display: flex;
         justify-content: space-between;
+        
         background-color: $color-background-box;
+        box-shadow: $shadow-box-main;
         border-radius: 10px;
 
         @include media-tablet {
@@ -21,13 +24,23 @@
             margin-top: 20px;
         }
     }
-
+    &__deg {
+        min-width: 68px;
+    }
+    &__lang {
+        min-width: 116px;
+    }
     &__lang, &__deg {
       margin-left: 20px;
       border: none;
 
       @include media-tablet {
         width: 75%;
+    }
+
+    @include media-mobile {
+        width: unset;
+        margin-left: 0;
     }
 
       &>div>* {

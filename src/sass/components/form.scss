@@ -3,6 +3,10 @@
   display: flex;
   width: 75%;
 
+  @include media-tablet {
+    width: 100%;
+  }
+
   @include media-mobile {
     flex-direction: column;
   }
@@ -19,7 +23,7 @@
     letter-spacing: 2px;
 
     background: transparent;
-    border: 1px solid $color-hovered;
+    border: 1px solid $color-font-little;
     outline: none;
     text-transform: uppercase;
 

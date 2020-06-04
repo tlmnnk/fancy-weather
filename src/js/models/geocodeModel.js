@@ -22,7 +22,7 @@ class GeocodeModel {
 
       const { lat, lng } = geodata.results[0].geometry;
       const { country, city, hamlet, village, state, county, town} = geodata.results[0].components;
-      const { offset_string } = geodata.results[0].annotations.timezone;
+      const { offset_sec } = geodata.results[0].annotations.timezone;
 
       this.languages[resultLang] = {
         country: country,
@@ -34,7 +34,7 @@ class GeocodeModel {
         lng: lng,
         town: town,
         village: village,
-        timeOffset: +offset_string.replace(/[0]/g, ''),
+        timeOffset: +offset_sec,
       };
     }
     return this.languages[resultLang];
@@ -48,8 +48,6 @@ class GeocodeModel {
       if (!geodata.results.length) {
         return false;
       }
-      console.log(`geodata = `);
-      console.log(geodata);
       
       const { lat, lng } = geodata.results[0].geometry;
       const { country, city, hamlet, village, state, county, town } = geodata.results[0].components;
@@ -57,10 +55,8 @@ class GeocodeModel {
       if (!city && !hamlet && !village && !state && !county) {
         return false;
       }
-      const { offset_string } = geodata.results[0].annotations.timezone;
-
-
-
+      
+      const { offset_sec } = geodata.results[0].annotations.timezone;
         this.languages[resultLang] = {
           country: country,
           city: city,
@@ -71,10 +67,9 @@ class GeocodeModel {
           lng: lng,
           town: town,
           village: village,
-          timeOffset: +offset_string.replace(/[0]/g, ''),
+          timeOffset: +offset_sec,
         };
     }
-    
     return this.languages[resultLang];
   }
 

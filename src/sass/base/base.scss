@@ -21,6 +21,9 @@ li {
 body {
   position: relative;
   background: $color-main;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #000;
   font-size: 16px;
   font-family: 'Comfortaa', cursive;

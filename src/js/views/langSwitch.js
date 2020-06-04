@@ -2,9 +2,11 @@ import { languages } from "../config/constants";
 import ru from '../i18n/ru';
 import en from '../i18n/en';
 import be from '../i18n/be';
+import timedateView from '../views/timeDateView';
 
 class LangSwitch {
   constructor () {
+    this.timedateView = timedateView;
     this.langSwitch = document.querySelector('.switch-toggle');
     this.elementsToTranslate = document.querySelectorAll('[data-i18n]');
     this.languages = {
@@ -23,12 +25,15 @@ class LangSwitch {
       }
 
       if (key === 'month') {
-        const currentMonth = new Date().getMonth();
+        const currentMonth = this.timedateView.getTimezoneMonth() || new Date().getMonth();
         elementToTranslate.forEach(item => item.innerText = language.month[currentMonth]); 
       }
       if (key === 'weekday') {
+        // get proper day from timedateView
+        console.log('timezone weekday = ');
+        console.log(this.timedateView.getTimezoneWeekday());
         
-        let weekdayIndex = new Date().getDay();
+        let weekdayIndex = this.timedateView.getTimezoneWeekday() || new Date().getDay();
         elementToTranslate.forEach((item) => {
           item.innerText = language.weekday[weekdayIndex];
           weekdayIndex += 1;

@@ -23,7 +23,7 @@ class MyToast{
   }
 
   wrongInputMessage() {
-    Toast.show(this.language.wrongInput[this.currentLang]);
+    Toast.show(this.language.invalidInput[this.currentLang]);
   }
 
   cityNotFound() {

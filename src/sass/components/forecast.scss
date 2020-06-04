@@ -1,5 +1,6 @@
 .forecast {
   padding: 5px 10px;
+  box-shadow: $shadow-box-main;
   
   &__inner {
     height: 100%;
@@ -8,6 +9,10 @@
     align-self: center;
     font-size: 10rem;
     text-align: center;
+
+    @include media-mobile {
+      font-size: 6rem;
+    }
   }
 
   &__img {
@@ -31,11 +36,15 @@
 
   &__3days {
     margin-top: 30px;
-    justify-items: space-between;
+    justify-content: space-between;
 
     &--weekday {
       color: $color-font-secondary;
       text-align: center;
+
+      @include media-mobile {
+        font-size: 1.3rem;
+      }
     }
   
     &--weather {
@@ -48,6 +57,10 @@
 
       & img {
         width: 70px;
+
+        @include media-mobile {
+          width: 50px;
+        }
       }
     } 
   }
