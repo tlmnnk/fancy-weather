@@ -14,12 +14,14 @@ class TempUnits {
       if (e.target.hasAttribute('data-tempswitch')) {
         this.switchCheckedButton(e);
         if (e.target.getAttribute('data-tempswitch') === 'far') {
+          
           this.renderFarTempUnit();
         }
         if (e.target.getAttribute('data-tempswitch') === 'cel') {
           this.renderCelTempUnit();
         }
         this.curDeg = e.target.getAttribute('data-tempswitch');
+       
       }
     }
     

@@ -22,6 +22,10 @@
 
   &__weather {
     font-size: 3rem;
+
+    @include media-mobile {
+      font-size: 2rem;
+    }
   }
 
   &__app [data-apptemp] {

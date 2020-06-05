@@ -17,9 +17,7 @@ class GeocodeModel {
       if (!geodata.results.length) {
         return false;
       }
-      console.log(`geodata from model`);
-      console.log(geodata);
-
+  
       const { lat, lng } = geodata.results[0].geometry;
       const { country, city, hamlet, village, state, county, town} = geodata.results[0].components;
       const { offset_sec } = geodata.results[0].annotations.timezone;

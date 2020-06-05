@@ -14,9 +14,6 @@ class TimeDateView {
   }
 
   setTimeDate(timeOffset = 0) {
-    console.log('timeOffset = ....');
-    console.log(timeOffset);
-    
     const date = new Date(new Date().getTime() + (new Date().getTimezoneOffset()*60000) + timeOffset*1000);
     let hour = date.getHours();
     let day = date.getDate();
@@ -66,7 +63,7 @@ class TimeDateView {
         timeOfDay = 'afternoon';
         break;
         case (this.hourStr >= 18 && this.hourStr < 24 ):
-        timeOfDay = 'afternoon';
+        timeOfDay = 'evening';
         break;
       default:
         timeOfDay = 'town';

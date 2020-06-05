@@ -24,22 +24,28 @@ class App {
     this.preloader = preloader;
     this.currentCoords = null;
     this.currentWeatherCode = null;
-    this.currentLang = languages.english;
+    this.currentLang = JSON.parse(localStorage.getItem('fancy-lang')) || languages.english;
+    this.currentDeg = null;
     this.currentCity = null;
     this.tempUnits = tempUnits;
     this.geocodeModel = new GeocodeModel();
     this.langSwitch = langSwitch;
-    this.currentDeg = 'cel';
+    
     this.photoView = photoView;
   }
 
   async init() {
     await this.renderMapOnStart();
     await this.renderForecastOnStart();
+    this.tempUnits.getCelvalues();
+    this.currentDeg = JSON.parse(localStorage.getItem('fancy-tempUnits')) || 'cel';
+    this.currentDeg === 'far' ? this.tempUnits.renderFarTempUnit() : null;
+    this.langSwitch.renderLangAndTempButtons(this.currentLang, this.currentDeg);
     this.renderCityLocationAndDate( this.currentCoords, this.currentLang );
     //this.langSwitchIventListener(this.currentWeatherCode);
     this.initEventListeners();
   }
+
 
   initEventListeners() {
     document.querySelector('.form').addEventListener('submit', (e) => {
@@ -54,8 +60,9 @@ class App {
   }
 
   degreesSwitchHandler(e) {
-    if (e.target.getAttribute('data-tempswitch') === 'far' || 'cel') {
+    if (e.target.hasAttribute('data-tempswitch')) {
       this.currentDeg = e.target.getAttribute('data-tempswitch');
+      localStorage.setItem('fancy-tempUnits', JSON.stringify(this.currentDeg));
     }
   }
   async langSwitchIventListener(e) {
@@ -71,6 +78,7 @@ class App {
         e.target.classList.add('radio-checked');
         
         this.currentLang = e.target.innerText.toLowerCase();
+        localStorage.setItem('fancy-lang', JSON.stringify(this.currentLang));
         this.preloader.hide();
       }
 
@@ -139,8 +147,7 @@ class App {
   renderForcast(currentForecast, forecast3days) {
     this.weatherView.renderCurrentForecast(currentForecast);
     this.weatherView.render3daysForecast(forecast3days);
-    this.tempUnits.getCelvalues();
-    this.currentDeg = this.tempUnits.getCurrentUnitTemperat();
+    //this.currentDeg = this.tempUnits.getCurrentUnitTemperat();
   }
 
   inputValdation(input) {
@@ -165,6 +172,7 @@ class App {
         this.preloader.hide();
         return;
       }
+      
       this.currentCity = inputValue;     
       const { lat, lng, timeOffset } = geo;
       this.currentCoords = {
@@ -181,9 +189,10 @@ class App {
       }
       this.timeDateView.setTimeDate(timeOffset);
       this.timeDateView.renderTime();
-      this.photoView.changePhoto();
+      this.photoView.changePhoto(this.timeDateView.getSearchPhotoQuery());
       document.querySelector('.search-city__input').value = '';
       this.renderForcast(currentForecast, forecast3days);
+
       if (this.currentDeg === 'far') {
         this.tempUnits.renderFarTempUnit();
       }

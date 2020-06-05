@@ -17,7 +17,7 @@ class PhotoView {
   async changePhoto(searchStr) {
     const res = await this.apiService.getPhoto(searchStr);
     
-    console.log(`searchStr ===  `);
+    console.log(`searchPhotoStr === `);
     console.log(searchStr);
     
       const { regular } = res.urls;

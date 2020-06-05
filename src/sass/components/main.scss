@@ -20,7 +20,7 @@
       font-size: 3rem;
     }
     @include media-mobile {
-      
+      font-size: 2rem;
     }
   }
 
@@ -28,6 +28,10 @@
     font-size: 2rem;
     color: $color-font-secondary;
     text-align: right;
+
+    @include media-mobile {
+      font-size: 1.5rem;
+    }
   }
 
   &-block {

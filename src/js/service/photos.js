@@ -19,7 +19,6 @@ class PhotosService {
       if (response.status !== 200) {
         return false;
       }
-      console.log(response);
       return response.data;
     } catch (error) {
       console.log(error);
