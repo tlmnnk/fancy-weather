@@ -4,6 +4,7 @@ class TempUnits {
     this.buttonContainer = document.querySelector('.header__degrees');
     this.tempCelArray = [];
     this.curDeg= null;
+    this.forecastArrayInCel = [];
   }
 
   eventHandler(e) {
@@ -40,23 +41,25 @@ class TempUnits {
 
   renderFarTempUnit() {
     [...this.degreesContainer].forEach((item, i) =>  {
-      let temp = (this.tempCelArray[i] * 1.8) + 32;
+      let temp = (this.forecastArrayInCel[i] * 1.8) + 32;
       temp = this.serializeForecast(temp);
       item.innerText = temp; 
       });
     }
 
-  getCelvalues() {
-    this.tempCelArray = [];
-   [...this.degreesContainer].forEach(item => {
-     const el = +(item.innerText.slice(0, item.innerText.length -1));
-    this.tempCelArray.push(el);
-   });
-  }
+    storeForecast(currentForecast, forecast3days) {
+      let { app_temp, temp } = currentForecast;
+      this.forecastArrayInCel.push(temp);
+      this.forecastArrayInCel.push(app_temp);
+      forecast3days.forEach((forecastForDay, i) => {
+        const { temp } = forecastForDay;
+        this.forecastArrayInCel.push(temp);
+      });
+    }
 
   renderCelTempUnit() {
     [...this.degreesContainer].forEach((item, i) => {
-      let temp = this.tempCelArray[i];
+      let temp = this.forecastArrayInCel[i];
       temp = this.serializeForecast(temp);
       item.innerText = temp;
     });
@@ -71,6 +74,4 @@ class TempUnits {
   }
 }
 
-const tempUnits = new TempUnits();
-
-export default tempUnits;
+export default TempUnits;

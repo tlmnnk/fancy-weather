@@ -9,7 +9,7 @@ import langSwitch from '../views/langSwitch';
 import timeDateView from '../views/timeDateView';
 import MyToast from '../views/toast';
 import preloader from '../views/preloader';
-import tempUnits from '../views/degrees';
+import TempUnits from '../views/degrees';
 import photoView from '../views/photoView';
 
 
@@ -27,7 +27,7 @@ class App {
     this.currentLang = JSON.parse(localStorage.getItem('fancy-lang')) || languages.english;
     this.currentDeg = null;
     this.currentCity = null;
-    this.tempUnits = tempUnits;
+    this.tempUnits = new TempUnits();
     this.geocodeModel = new GeocodeModel();
     this.langSwitch = langSwitch;
     
@@ -36,10 +36,10 @@ class App {
 
   async init() {
     await this.renderMapOnStart();
+    this.currentDeg = await JSON.parse(localStorage.getItem('fancy-tempUnits')) || 'cel';
     await this.renderForecastOnStart();
-    this.tempUnits.getCelvalues();
-    this.currentDeg = JSON.parse(localStorage.getItem('fancy-tempUnits')) || 'cel';
-    this.currentDeg === 'far' ? this.tempUnits.renderFarTempUnit() : null;
+    
+    
     this.langSwitch.renderLangAndTempButtons(this.currentLang, this.currentDeg);
     this.renderCityLocationAndDate( this.currentCoords, this.currentLang );
     //this.langSwitchIventListener(this.currentWeatherCode);
@@ -89,6 +89,10 @@ class App {
     const forecast = await this.getLocalForecast(this.currentCoords);
     const { currentForecast, forecast3days } = forecast;
     this.renderForcast(currentForecast, forecast3days);
+    this.tempUnits.storeForecast(currentForecast, forecast3days);
+    
+    
+    this.currentDeg === 'far' ? this.tempUnits.renderFarTempUnit() : null;
   }
 
   async getForecastByCoords(lang, lat, lng) {
@@ -147,7 +151,6 @@ class App {
   renderForcast(currentForecast, forecast3days) {
     this.weatherView.renderCurrentForecast(currentForecast);
     this.weatherView.render3daysForecast(forecast3days);
-    //this.currentDeg = this.tempUnits.getCurrentUnitTemperat();
   }
 
   inputValdation(input) {
@@ -187,6 +190,8 @@ class App {
         this.preloader.hide();
         return;
       }
+      this.tempUnits = new TempUnits();
+      this.tempUnits.storeForecast(currentForecast, forecast3days);
       this.timeDateView.setTimeDate(timeOffset);
       this.timeDateView.renderTime();
       this.photoView.changePhoto(this.timeDateView.getSearchPhotoQuery());
